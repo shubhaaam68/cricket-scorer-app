@@ -1,0 +1,277 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    min-height: 100vh;
+    padding: 30px 15px;
+}
+
+.container {
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+    color: white;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 18px;
+    opacity: 0.85;
+}
+
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    margin-bottom: 20px;
+    color: #222;
+}
+
+/* SETUP */
+
+.setup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button {
+    border: none;
+    border-radius: 9px;
+    padding: 13px 18px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+.start-btn {
+    width: 100%;
+    margin-top: 20px;
+    background: #198754;
+    color: white;
+}
+
+/* SCOREBOARD */
+
+.scoreboard {
+    text-align: center;
+}
+
+.innings-title {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+}
+
+.score {
+    font-size: 70px;
+    font-weight: bold;
+    margin: 15px 0 5px;
+}
+
+.overs {
+    font-size: 21px;
+    color: #555;
+}
+
+.stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-top: 20px;
+}
+
+.stats-row div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.stats-row span {
+    font-size: 20px;
+    color: #333;
+}
+
+.target-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: #fff3cd;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+/* BATSMEN */
+
+.batsmen {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.batsman {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 18px;
+    background: #f8f9fa;
+}
+
+.active-batsman {
+    border: 2px solid #198754;
+}
+
+.batsman-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.batsman-score {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.batting-stats {
+    color: #666;
+}
+
+/* CONTROLS */
+
+.run-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.run-buttons button {
+    background: #e9ecef;
+    font-size: 20px;
+}
+
+.wicket-heading {
+    margin-top: 25px;
+}
+
+.wicket-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 10px;
+}
+
+.wicket-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.end-btn {
+    width: 100%;
+    margin-top: 20px;
+    background: #0d6efd;
+    color: white;
+}
+
+.reset-btn {
+    width: 100%;
+    margin-top: 10px;
+    background: #343a40;
+    color: white;
+}
+
+/* HISTORY */
+
+.history-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.ball {
+    padding: 8px 13px;
+    background: #e9ecef;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.wicket-ball {
+    background: #f8d7da;
+    color: #842029;
+}
+
+/* RESULT */
+
+.result {
+    text-align: center;
+    background: #d1e7dd;
+}
+
+.result p {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    .setup-grid,
+    .batsmen,
+    .wicket-controls {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-row {
+        gap: 35px;
+    }
+
+    .score {
+        font-size: 55px;
+    }
+}

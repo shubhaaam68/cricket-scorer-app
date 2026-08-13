@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cricket Scorer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>🏏 Cricket Scorer</h1>
+        <p>Live Match Scoreboard</p>
+    </header>
+
+    <!-- MATCH SETUP -->
+    <section class="card setup-card">
+
+        <h2>Match Setup</h2>
+
+        <div class="setup-grid">
+
+            <div>
+                <label>Team Name</label>
+                <input type="text" id="teamName" value="India">
+            </div>
+
+            <div>
+                <label>Striker</label>
+                <input type="text" id="strikerName" value="Rahul">
+            </div>
+
+            <div>
+                <label>Non-Striker</label>
+                <input type="text" id="nonStrikerName" value="Rohit">
+            </div>
+
+            <div>
+                <label>Bowler</label>
+                <input type="text" id="bowlerName" value="Bumrah">
+            </div>
+
+        </div>
+
+        <button class="start-btn" onclick="startMatch()">
+            Start Match
+        </button>
+
+    </section>
+
+
+    <!-- SCOREBOARD -->
+    <section class="card scoreboard">
+
+        <div class="innings-title">
+            <span id="teamDisplay">India</span>
+            <span id="inningsDisplay">1st Innings</span>
+        </div>
+
+        <div class="score">
+            <span id="runs">0</span>/<span id="wickets">0</span>
+        </div>
+
+        <div class="overs">
+            Overs: <span id="overs">0.0</span>
+        </div>
+
+        <div class="stats-row">
+
+            <div>
+                <strong>Run Rate</strong>
+                <span id="runRate">0.00</span>
+            </div>
+
+            <div>
+                <strong>Bowler</strong>
+                <span id="bowlerDisplay">-</span>
+            </div>
+
+        </div>
+
+        <div id="targetBox" class="target-box hidden">
+            Target: <strong id="target">0</strong>
+            <br>
+            Need <strong id="runsNeeded">0</strong> runs
+        </div>
+
+    </section>
+
+
+    <!-- BATSMEN -->
+    <section class="card">
+
+        <h2>🏏 Batsmen</h2>
+
+        <div class="batsmen">
+
+            <div class="batsman active-batsman">
+
+                <div class="batsman-name">
+                    <span id="strikerIndicator">▶</span>
+                    <span id="strikerDisplay">Rahul</span>
+                </div>
+
+                <div class="batsman-score">
+                    <span id="strikerRuns">0</span>
+                    (<span id="strikerBalls">0</span>)
+                </div>
+
+                <div class="batting-stats">
+                    4s: <span id="strikerFours">0</span>
+                    &nbsp; | &nbsp;
+                    6s: <span id="strikerSixes">0</span>
+                </div>
+
+            </div>
+
+
+            <div class="batsman">
+
+                <div class="batsman-name">
+                    <span id="nonStrikerDisplay">Rohit</span>
+                </div>
+
+                <div class="batsman-score">
+                    <span id="nonStrikerRuns">0</span>
+                    (<span id="nonStrikerBalls">0</span>)
+                </div>
+
+                <div class="batting-stats">
+                    4s: <span id="nonStrikerFours">0</span>
+                    &nbsp; | &nbsp;
+                    6s: <span id="nonStrikerSixes">0</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SCORING CONTROLS -->
+    <section class="card controls">
+
+        <h2>Score Runs</h2>
+
+        <div class="run-buttons">
+
+            <button onclick="addRuns(0)">0</button>
+            <button onclick="addRuns(1)">1</button>
+            <button onclick="addRuns(2)">2</button>
+            <button onclick="addRuns(3)">3</button>
+            <button onclick="addRuns(4)">4</button>
+            <button onclick="addRuns(6)">6</button>
+
+        </div>
+
+
+        <h2 class="wicket-heading">Wicket</h2>
+
+        <div class="wicket-controls">
+
+            <select id="dismissalType">
+
+                <option value="Bowled">Bowled</option>
+                <option value="Caught">Caught</option>
+                <option value="LBW">LBW</option>
+                <option value="Run Out">Run Out</option>
+                <option value="Stumped">Stumped</option>
+
+            </select>
+
+            <input
+                type="text"
+                id="newBatsman"
+                placeholder="New batsman name"
+            >
+
+            <button class="wicket-btn" onclick="addWicket()">
+                ❌ Wicket
+            </button>
+
+        </div>
+
+
+        <button class="end-btn" onclick="endInnings()">
+            End Innings
+        </button>
+
+        <button class="reset-btn" onclick="resetMatch()">
+            Reset Match
+        </button>
+
+    </section>
+
+
+    <!-- BALL HISTORY -->
+    <section class="card">
+
+        <h2>📋 Ball-by-Ball History</h2>
+
+        <div id="historyList" class="history-list">
+            No balls recorded yet.
+        </div>
+
+    </section>
+
+
+    <!-- MATCH RESULT -->
+    <section id="resultBox" class="card result hidden">
+
+        <h2>🏆 Match Result</h2>
+
+        <p id="resultText"></p>
+
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
